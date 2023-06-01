@@ -1,6 +1,6 @@
 export const searchWeather = async (query) => {
     const response = await fetch(
-      `https://api.openweathermap.org/data/2.5/weather?q=${query},uk&APPID=${import.meta.env.PUBLIC_API_KEY}`
+      `https://api.openweathermap.org/data/2.5/weather?q=${query}&APPID=${import.meta.env.PUBLIC_API_KEY}`
     );
     const weather = await response.json();
     return weather;

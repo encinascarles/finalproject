@@ -1,12 +1,11 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import WeatherSearch from '../components/LondonWeather.jsx';
+import WeatherSearch from '../components/SearchWeather.jsx';
 ---
 
-
-<Layout title="London weather">
+<Layout title="Search for weather">
 	<main>
-		<h1 class="text-gradient">London weather</h1>
+		<h1 class="text-gradient">Search for weather</h1>
 		<WeatherSearch client:load/>
 	</main>
 </Layout>
