@@ -3,5 +3,5 @@ const response = await fetch(
 );
 const weather = await response.json();
 
-console.log(weather);
+console.log(weather.weather[0].description);
 

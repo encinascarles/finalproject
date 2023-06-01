@@ -1,12 +1,12 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import LondonWeather from '../components/LondonWeather.jsx';
 ---
 
-<Layout title="Weather project">
+<Layout title="London weather">
 	<main>
-		<h1>Weather project</h1>
-		<h2>By Carles Encinas</h1>
-		<a href="london">London Weather</a>
+		<h1 class="text-gradient">London weather</h1>
+		<LondonWeather client:load/>
 	</main>
 </Layout>
 
