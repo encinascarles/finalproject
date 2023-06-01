@@ -4,6 +4,7 @@ import { LondonWeather, searchWeather } from "../api";
 function WeatherCard({weatherData}){
   return (
     <div>
+      <h1>{weatherData.name}</h1>
       <h2>{weatherData.weather[0].main}</h2>
       <img src={`https://openweathermap.org/img/wn/${weatherData.weather[0].icon}@2x.png`}/>
       <h3>{weatherData.weather[0].description}</h3>
@@ -37,14 +38,13 @@ export default function WeatherSearch() {
   }, [search]);
 
   console.log(weatherData);
-  //if (!weatherData) return (<h2>carregant...</h2>);
   return (
     <div>
       <form onSubmit={doSearch}>
         <input type="text" ref={searchRef} />
         <button>Search</button>
       </form>
-      {weatherData ? <WeatherCard weatherData={weatherData}/> : <h2>carregant...</h2>}
+      {weatherData && (weatherData.weather ? <WeatherCard weatherData={weatherData}/> : search && <h2>"{search}" not Found!</h2>)}
     </div>
   );
   
