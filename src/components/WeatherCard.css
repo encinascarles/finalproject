@@ -1,7 +1,8 @@
 .weather-card{
-    max-width: 50rem;
+    max-width: 70rem;
     margin-left: auto;
-    margin-right: auto
+    margin-right: auto;
+    text-align: center;
 }
 
 .weather-card h1{
@@ -20,7 +21,7 @@
 .weather-card .content{
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
 }
 .actual-weather img{

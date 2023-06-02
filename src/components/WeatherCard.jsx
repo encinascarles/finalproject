@@ -21,7 +21,7 @@ export default function WeatherCard({weatherData}){
       <button onClick={() => state_saved.setSaved(weatherData.name)}>Save</button>
       <h3>There is {weatherData.weather[0].description} in {weatherData.name}</h3>
       <div className="content">
-        <img src={imagesrc}/>
+        {imagesrc &&  <img src={imagesrc}/>}
         <div className="actual-weather">
           <img src={`https://openweathermap.org/img/wn/${weatherData.weather[0].icon}@2x.png`}/>
           <h2>{weatherData.weather[0].main}</h2>
