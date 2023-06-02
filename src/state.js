@@ -22,7 +22,9 @@ class SavedList {
   }
 
   setSaved(saved) {
-    this.saved.push(saved);
+    if (this.saved.indexOf(saved) < 0) {
+      this.saved.push(saved);
+    }
   }
 
   rmSaved(saved) {
