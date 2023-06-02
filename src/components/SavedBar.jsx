@@ -41,7 +41,7 @@ function SavedBar() {
     <div className="saved-bar">
       <h1>Saved Cities</h1>
       {savedCities.map((city) => (
-        <SavedCity city={city} />
+        <SavedCity city={city} key={"savebarcomponent_" + savedCities.indexOf(city)}/>
       ))}
     </div>
   );
