@@ -1,18 +1,20 @@
 ---
+import SavedBar from '../components/SavedBar';
 import WeatherResults from '../components/WeatherResults';
 import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout title="Search for weather">
 	<main>
+		<SavedBar client:load/>
 		<WeatherResults client:load/>
 	</main>
 </Layout>
 
 <style>
 	main {
-		margin: auto;
-		padding: 1.5rem;
+		margin: 0;
+		padding: 0;
 	}
 	h1 {
 		font-size: 3rem;
