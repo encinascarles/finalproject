@@ -12,7 +12,7 @@ function WeatherResults() {
         (weatherData.weather ? (
           <WeatherCard weatherData={weatherData} />
         ) : (
-           <h2>not Found!</h2>
+           <h2>Not Found!</h2>
         ))}
     </>
   );

@@ -5,5 +5,5 @@ export const searchImage = async (enteringquery) => {
     const query = enteringquery + "+city";
     const log = await client.photos.search({query, per_page: 1 });
     //console.log(log.photos[0].src.original);
-    return log.photos[0].src.small;
+    return log.photos[0].src.medium;
 };

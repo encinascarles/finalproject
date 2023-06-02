@@ -2,7 +2,7 @@ import { makeAutoObservable } from "mobx";
 
 class WeatherResults {
   constructor() {
-    this.weather = {};
+    this.weather = null;
     makeAutoObservable(this);
   }
 

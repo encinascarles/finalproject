@@ -1,3 +1,35 @@
+.weather-card{
+    max-width: 50rem;
+    margin-left: auto;
+    margin-right: auto
+}
+
 .weather-card h1{
-    background-color: red;
+    font-size: 2.5em;
+}
+
+.weather-card h3{
+    margin-bottom: 1em;
+    color: #11009E;
+}
+
+.weather-card img{
+    height: 25em;
+}
+
+.weather-card .content{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.actual-weather img{
+    height: 10em;
+}
+.actual-weather{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 1em;
 }
