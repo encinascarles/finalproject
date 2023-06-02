@@ -25,6 +25,10 @@ class SavedList {
     this.saved.push(saved);
   }
 
+  rmSaved(saved) {
+    this.saved.splice(this.saved.indexOf(saved), 1);
+  }
+
   getSaved() {
     return this.saved;
   }

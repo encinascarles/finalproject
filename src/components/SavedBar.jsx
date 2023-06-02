@@ -6,6 +6,7 @@ function SavedCity({ city }) {
   return (
     <div className="saved-city">
       <h2>{city}</h2>
+      <button onClick={() => state_saved.rmSaved(city)}>Delete</button>
     </div>
   );
 }
