@@ -1,7 +1,9 @@
 .saved-bar {
     width:100%;
     background-color: white;
-
+    display:flex;
+    flex-direction: row;
+    align-items: center;
     height:100px;
 }
 .saved-bar h1 {

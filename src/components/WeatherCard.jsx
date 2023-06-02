@@ -2,6 +2,7 @@ import React from 'react';
 import { useEffect, useState } from "react";
 import "./WeatherCard.css"
 import {searchImage} from "../imageapi"
+import { state_saved } from '../state';
 
 export default function WeatherCard({weatherData}){
   const [imagesrc, setImagesrc] = useState("");
@@ -12,9 +13,12 @@ export default function WeatherCard({weatherData}){
     };
     fetchImage();
   }, [weatherData]);
+
+  
   return (
     <div className="weather-card">
       <h1>{weatherData.name}</h1>
+      <button onClick={() => state_saved.setSaved(weatherData.name)}>Save</button>
       <h3>There is {weatherData.weather[0].description} in {weatherData.name}</h3>
       <div className="content">
         <img src={imagesrc}/>

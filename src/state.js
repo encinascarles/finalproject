@@ -15,4 +15,20 @@ class WeatherResults {
   }
 }
 
+class SavedList {
+  constructor() {
+    this.saved = [];
+    makeAutoObservable(this);
+  }
+
+  setSaved(saved) {
+    this.saved.push(saved);
+  }
+
+  getSaved() {
+    return this.saved;
+  }
+}
+
 export const state = new WeatherResults();
+export const state_saved = new SavedList();
