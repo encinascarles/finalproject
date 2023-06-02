@@ -1,9 +1,21 @@
 import React from 'react';
+import { useEffect, useState } from "react";
+import "./WeatherCard.css"
+import {searchImage} from "../imageapi"
 
 export default function WeatherCard({weatherData}){
+  const [imagesrc, setImagesrc] = useState("");
+  useEffect(() => {
+    const fetchImage = async () => {
+      const imagesrcc = await searchImage(weatherData.name);
+      setImagesrc(imagesrcc);
+    };
+    fetchImage();
+  }, [weatherData]);
   return (
-    <div>
+    <div className="weather-card">
       <h1>{weatherData.name}</h1>
+      <img src={imagesrc}/>
       <h2>{weatherData.weather[0].main}</h2>
       <img src={`https://openweathermap.org/img/wn/${weatherData.weather[0].icon}@2x.png`}/>
       <h3>{weatherData.weather[0].description}</h3>
