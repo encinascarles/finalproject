@@ -1,4 +1,6 @@
 ---
+import WeatherSearch from '../components/WeatherSearch';
+
 export interface Props {
 	title: string;
 }
@@ -20,6 +22,7 @@ const { title } = Astro.props;
 		<header>
 			<img src="https://img.uxwing.com/wp-content/themes/uxwing/download/weather/weather-icon.png" alt="UPC LOGO" />
 			<h1>Weather App</h1>
+			<WeatherSearch client:load/>
 		</header>
 		<main>
 			<slot />
