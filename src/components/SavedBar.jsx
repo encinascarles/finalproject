@@ -16,8 +16,12 @@ function SavedCity({ city }) {
       ]);
     };
     fetchWeatherData();
+
+    // Update every minute
+    const interval = setInterval(fetchWeatherData, 60000);
+    return () => clearInterval(interval);
   }, [city]);
-  console.log(weatherData);
+
   return (
     <div className="saved-city">
       <h2>{city}</h2>
