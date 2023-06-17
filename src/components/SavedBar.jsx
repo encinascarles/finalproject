@@ -7,7 +7,6 @@ import { state } from "../state";
 
 function SavedCity({ city }) {
   const [weatherData, setWeatherData] = useState("");
-  const [search, setSearch] = useState("");
 
   useEffect(() => {
     const fetchWeatherData = async () => {
@@ -23,29 +22,24 @@ function SavedCity({ city }) {
     const interval = setInterval(fetchWeatherData, 60000);
     return () => clearInterval(interval);
   }, [city]);
-  
-  useEffect(() => {
+
+  const doSearch = (event) => {
     const fetchWeatherData = async () => {
-      if (!search) return;
-      const data = await searchWeather(search);
+      const data = await searchWeather(city);
+      console.log(data);
       state.setWeather(data);
     };
     fetchWeatherData();
-  }, [search]);
-  
+  };
 
   return (
-    <div className="saved-city">
+    <div className="saved-city" onClick={() => {
+      doSearch();
+    }}>
       <h2>{city}</h2>
       <img src={weatherData[0]} />
       <h4>Temp: {weatherData[1]} °C</h4>
       <button onClick={() => state_saved.rmSaved(city)}>Delete</button>
-      <button
-        onClick={() => {
-          setSearch(city);
-        }}>Search
-      </button>
-
       {/*<h4>Temp: {Math.round(weatherData.main.temp-273.15)} °C</h4>*/}
     </div>
   );
