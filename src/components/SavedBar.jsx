@@ -1,11 +1,12 @@
+import React, { useState } from "react";
 import "./SavedBar.css";
 import { state_saved } from "../state";
 import { observer } from "mobx-react-lite";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { searchWeather } from "../api";
 import { state } from "../state";
 
-function SavedCity({ city }) {
+function SavedCity({ city, expanded }) {
   const [weatherData, setWeatherData] = useState("");
 
   useEffect(() => {
@@ -39,7 +40,7 @@ function SavedCity({ city }) {
 
   return (
     <div
-      className="saved-city"
+      className={`saved-city ${expanded ? "expanded" : "collapsed"}`}
       onClick={() => {
         doSearch();
       }}
@@ -48,25 +49,37 @@ function SavedCity({ city }) {
         <h2>{city}</h2>
         <button onClick={(event) => doDelete(event)}>&#128465;</button>
       </div>
-      <img src={weatherData[0]} />
-      <h4>Temp: {weatherData[1]} °C</h4>
-      {/*<h4>Temp: {Math.round(weatherData.main.temp-273.15)} °C</h4>*/}
+      {expanded && (
+        <>
+          <img src={weatherData[0]} alt="Weather Icon" />
+          <h4>Temp: {weatherData[1]} °C</h4>
+        </>
+      )}
     </div>
   );
 }
 
 function SavedBar() {
+  const [expanded, setExpanded] = useState(false);
   const savedCities = state_saved.getSaved();
-  //const savedCities = ["London", "Paris", "New York"];
+
+  const toggleExpand = () => {
+    setExpanded(!expanded);
+  };
+
   return (
-    <div className="saved-bar">
+    <div className={`saved-bar ${expanded ? "expanded" : "collapsed"}`}>
       <h1>Saved Cities</h1>
       {savedCities.map((city) => (
         <SavedCity
           city={city}
           key={"savebarcomponent_" + savedCities.indexOf(city)}
+          expanded={expanded}
         />
       ))}
+      <button className="expand-button" onClick={toggleExpand}>
+        {expanded ? "Collapse" : "Expand"}
+      </button>
       <button
         className="add-button"
         onClick={() => state_saved.setSaved(state.getWeather().name)}
