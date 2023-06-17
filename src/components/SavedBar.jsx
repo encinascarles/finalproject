@@ -70,14 +70,15 @@ function SavedBar() {
   return (
     <div className={`saved-bar ${expanded ? "expanded" : "collapsed"}`}>
       <h1>Saved Cities</h1>
-      {savedCities.map((city) => (
-        <SavedCity
-          city={city}
-          key={"savebarcomponent_" + savedCities.indexOf(city)}
-          expanded={expanded}
-        />
-      ))}
-
+      <div className="saved-cities">
+        {savedCities.map((city) => (
+          <SavedCity
+            city={city}
+            key={"savebarcomponent_" + savedCities.indexOf(city)}
+            expanded={expanded}
+          />
+        ))}
+      </div>
       <button
         className="add-button"
         onClick={() => state_saved.setSaved(state.getWeather().name)}

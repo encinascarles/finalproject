@@ -4,10 +4,14 @@
     display:flex;
     flex-direction: row;
     align-items: center;
+    position: relative;     
+}
+.saved-cities{
+    display:flex;
+    flex-direction: row;
+    align-items: center;
     overflow-x: auto;
     white-space: nowrap;
-    position: relative; 
-    padding-bottom: 2em; 
 }
 .saved-bar h1 {
     margin-right :2em;
@@ -54,6 +58,7 @@
     aspect-ratio: 1;
     cursor: pointer;
     margin-left:2em;
+    margin-right:2em;
 }
 
 .saved-bar .expand-button{
