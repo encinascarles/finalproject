@@ -18,6 +18,7 @@
     border-radius: 1em;
     border: 2px solid lightgray;
     padding: 1rem;
+    cursor: copy;
 }
 .saved-city h2, .saved-city h4{
     margin:0;
@@ -39,4 +40,14 @@
     border:none;
     margin-left:1rem;
     font-size: 1.7rem;
+    cursor: pointer;
+}
+.saved-bar .add-button{
+    background-color: transparent;
+    border:3px solid #11009E;
+    font-size: 1.5em;
+    border-radius: 50%;
+    aspect-ratio: 1;
+    cursor: pointer;
+    
 }

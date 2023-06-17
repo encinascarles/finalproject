@@ -62,8 +62,8 @@ function SavedBar() {
           key={"savebarcomponent_" + savedCities.indexOf(city)}
         />
       ))}
-      <button onClick={() => state_saved.setSaved(state.getWeather().name)}>
-        Save
+      <button className="add-button" onClick={() => state_saved.setSaved(state.getWeather().name)}>
+      &#10133;
       </button>
     </div>
   );
