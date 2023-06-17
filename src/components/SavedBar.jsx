@@ -3,9 +3,11 @@ import { state_saved } from "../state";
 import { observer } from "mobx-react-lite";
 import { useEffect, useState } from "react";
 import { searchWeather } from "../api";
+import { state } from "../state";
 
 function SavedCity({ city }) {
   const [weatherData, setWeatherData] = useState("");
+  const [search, setSearch] = useState("");
 
   useEffect(() => {
     const fetchWeatherData = async () => {
@@ -21,6 +23,16 @@ function SavedCity({ city }) {
     const interval = setInterval(fetchWeatherData, 60000);
     return () => clearInterval(interval);
   }, [city]);
+  
+  useEffect(() => {
+    const fetchWeatherData = async () => {
+      if (!search) return;
+      const data = await searchWeather(search);
+      state.setWeather(data);
+    };
+    fetchWeatherData();
+  }, [search]);
+  
 
   return (
     <div className="saved-city">
@@ -28,6 +40,11 @@ function SavedCity({ city }) {
       <img src={weatherData[0]} />
       <h4>Temp: {weatherData[1]} °C</h4>
       <button onClick={() => state_saved.rmSaved(city)}>Delete</button>
+      <button
+        onClick={() => {
+          setSearch(city);
+        }}>Search
+      </button>
 
       {/*<h4>Temp: {Math.round(weatherData.main.temp-273.15)} °C</h4>*/}
     </div>
@@ -41,7 +58,10 @@ function SavedBar() {
     <div className="saved-bar">
       <h1>Saved Cities</h1>
       {savedCities.map((city) => (
-        <SavedCity city={city} key={"savebarcomponent_" + savedCities.indexOf(city)}/>
+        <SavedCity
+          city={city}
+          key={"savebarcomponent_" + savedCities.indexOf(city)}
+        />
       ))}
     </div>
   );
