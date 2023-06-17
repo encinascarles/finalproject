@@ -6,6 +6,8 @@
     align-items: center;
     overflow-x: auto;
     white-space: nowrap;
+    position: relative; 
+    padding-bottom: 2em; 
 }
 .saved-bar h1 {
     margin-right :2em;
@@ -52,4 +54,10 @@
     aspect-ratio: 1;
     cursor: pointer;
     margin-left:2em;
+}
+
+.saved-bar .expand-button{
+    position: absolute; /* Add absolute positioning */
+  bottom: 0.5em; /* Adjust the desired distance from the bottom */
+  right: 0.5em; /* Adjust the desired distance from the right */
 }

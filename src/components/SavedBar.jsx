@@ -13,7 +13,7 @@ function SavedCity({ city, expanded }) {
     const fetchWeatherData = async () => {
       const data = await searchWeather(city);
       setWeatherData([
-        `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`,
+        `https://openweathermap.org/img/wn/${data.weather[0].icon}.png`,
         Math.round(data.main.temp - 273.15),
       ]);
     };
@@ -77,14 +77,16 @@ function SavedBar() {
           expanded={expanded}
         />
       ))}
-      <button className="expand-button" onClick={toggleExpand}>
-        {expanded ? "Collapse" : "Expand"}
-      </button>
+
       <button
         className="add-button"
         onClick={() => state_saved.setSaved(state.getWeather().name)}
       >
         &#10133;
+      </button>
+
+      <button className="expand-button" onClick={toggleExpand}>
+        {expanded ? <>&#9650;</> : <>&#9660;</>}
       </button>
     </div>
   );
