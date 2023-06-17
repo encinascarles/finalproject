@@ -15,8 +15,11 @@ pnpm-debug.log*
 
 # environment variables
 .local
+<<<<<<< HEAD
 .env
 .env.production
+=======
+>>>>>>> fdb538d495cd186e03fb0cc4eb060ad7dad6f305
 
 # macOS-specific files
 .DS_Store
