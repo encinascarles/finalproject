@@ -33,13 +33,18 @@ function SavedCity({ city }) {
   };
 
   return (
-    <div className="saved-city" onClick={() => {
-      doSearch();
-    }}>
-      <h2>{city}</h2>
+    <div
+      className="saved-city"
+      onClick={() => {
+        doSearch();
+      }}
+    >
+      <div className="name-delete">
+        <h2>{city}</h2>
+        <button onClick={() => state_saved.rmSaved(city)}>&#128465;</button>
+      </div>
       <img src={weatherData[0]} />
       <h4>Temp: {weatherData[1]} °C</h4>
-      <button onClick={() => state_saved.rmSaved(city)}>Delete</button>
       {/*<h4>Temp: {Math.round(weatherData.main.temp-273.15)} °C</h4>*/}
     </div>
   );
