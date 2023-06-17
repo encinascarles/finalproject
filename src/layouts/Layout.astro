@@ -1,8 +1,8 @@
 ---
-import WeatherSearch from '../components/WeatherSearch';
+import WeatherSearch from "../components/WeatherSearch";
 
 export interface Props {
-	title: string;
+  title: string;
 }
 
 const { title } = Astro.props;
@@ -10,94 +10,112 @@ const { title } = Astro.props;
 
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description">
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
-	</head>
-	<body>
-		<header>
-			<img src="https://img.uxwing.com/wp-content/themes/uxwing/download/weather/weather-icon.png" alt="UPC LOGO" />
-			<h1>Weather App</h1>
-			<div class="weather-bar">
-				<WeatherSearch client:load/>
-			</div>
-		</header>
-		
-		<slot />
-		
-		<footer>
-			<p>© 2023 - Weather App</p>
-			<p>WebApps final project</p>
-		</footer>
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Astro description" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <img
+          src="https://img.uxwing.com/wp-content/themes/uxwing/download/weather/weather-icon.png"
+          alt="UPC LOGO"
+        />
+        <h1>Weather App</h1>
+        <div class="weather-bar">
+          <WeatherSearch client:load />
+        </div>
+      </header>
+
+      <main class="content">
+        <slot />
+      </main>
+    </div>
+    <footer>
+      <p>© 2023 - Weather App</p>
+      <p>WebApps final project</p>
+    </footer>
+  </body>
 </html>
 <style is:global>
-	@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@500&display=swap');
-	header {
-		display: flex;
-		align-items: center;
-		justify-content: left;
-		flex-direction: row;
-		background-color: #11009E;	
-		font-family: 'Rubik';
-		font-size: 1.5em;;
-		color:white;	
-	}
-	header .weather-bar{
-		margin-left: auto;
-		margin-right: 3rem;
-	}
-	header form input{
-		font-family: 'Rubik';
-		font-size: 1em;
-		background-color: #8696FE;
-		color:white;
-		border: 2px solid white;
-		border-radius: 0.3em;
-		margin-right:0.5em;
-	}
-	header form button{
-		font-family: 'Rubik';
-		font-size: 1em;
-		background-color: #4942E4;
-		color:white;
-		border: 2px solid white;
-		border-radius: 0.3em;
-	}
-	body{
-		margin: 0;
-	}
-	header img{
-		height: 5rem;
-		margin:1rem;
-		margin-right: 3rem;
-	}
-	html {
-		font-family: 'Rubik';
-		background-color:#8696FE;
-	}
-	footer{
-		background-color: #C4B0FF;
-		color:white;
-		font-family: 'Rubik';
-		font-size: 1.5em;
-		text-align: center;
-		position:fixed;
-		z-index: -1;
-   	bottom:0;
-		width:100%;
-		display:flex;
-		flex-direction: row;
-		justify-content: center;
-	}
-	footer p{
-		margin-left:2em;
-		margin-right:2em;
-	}
-
-	
+  @import url("https://fonts.googleapis.com/css2?family=Rubik:wght@500&display=swap");
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    flex-direction: row;
+    background-color: #11009e;
+    font-family: "Rubik";
+    font-size: 1.5em;
+    color: white;
+    height: 7rem;
+  }
+  header .weather-bar {
+    margin-left: auto;
+    margin-right: 3rem;
+  }
+  header form input {
+    font-family: "Rubik";
+    font-size: 1em;
+    background-color: #8696fe;
+    color: white;
+    border: 2px solid white;
+    border-radius: 0.3em;
+    margin-right: 0.5em;
+  }
+  header form button {
+    font-family: "Rubik";
+    font-size: 1em;
+    background-color: #4942e4;
+    color: white;
+    border: 2px solid white;
+    border-radius: 0.3em;
+  }
+  body {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  header img {
+    height: 5rem;
+    margin: 1rem;
+    margin-right: 3rem;
+  }
+  html {
+    font-family: "Rubik";
+    background-color: #8696fe;
+  }
+  .container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .content {
+    flex: 1;
+    padding-bottom: 4rem;
+  }
+  footer {
+    background-color: #c4b0ff;
+    color: white;
+    font-family: "Rubik";
+    font-size: 1.5em;
+    text-align: center;
+    position: sticky;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    height: 4rem;
+  }
+  footer p {
+    margin-left: 2em;
+    margin-right: 2em;
+  }
 </style>

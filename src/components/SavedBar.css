@@ -1,68 +1,69 @@
 .saved-bar {
-    width:100%;
-    background-color: white;
-    display:flex;
-    flex-direction: row;
-    align-items: center;
-    position: relative;     
+  width: 100%;
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  position: relative;
 }
-.saved-cities{
-    display:flex;
-    flex-direction: row;
-    align-items: center;
-    overflow-x: auto;
-    white-space: nowrap;
+.saved-cities {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  overflow-x: auto;
+  white-space: nowrap;
 }
 .saved-bar h1 {
-    margin-right :2em;
-    margin-left :1em;
+  margin-right: 2em;
+  margin-left: 1em;
 }
 
-.saved-city{
-    display: flex;
-    flex-direction: column;
-    margin:0.1em 0.3rem;
-    align-items: center;
-    border-radius: 1em;
-    border: 2px solid lightgray;
-    padding: 1rem;
-    cursor: copy;
+.saved-city {
+  display: flex;
+  flex-direction: column;
+  margin: 0.1em 0.3rem;
+  align-items: center;
+  border-radius: 1em;
+  border: 2px solid lightgray;
+  padding: 1rem;
+  cursor: copy;
 }
-.saved-city h2, .saved-city h4{
-    margin:0;
+.saved-city h2,
+.saved-city h4 {
+  margin: 0;
 }
-.saved-city img{
-    height:120px;
+.saved-city img {
+  height: 120px;
 }
 
 .saved-bar .name-delete {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
 }
 .saved-bar .name-delete button {
-    margin:0;
-    padding: 0;
-    background-color: transparent;
-    border:none;
-    margin-left:1rem;
-    font-size: 1.7rem;
-    cursor: pointer;
+  margin: 0;
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  margin-left: 1rem;
+  font-size: 1.7rem;
+  cursor: pointer;
 }
-.saved-bar .add-button{
-    background-color: transparent;
-    border:3px solid #11009E;
-    font-size: 1.5em;
-    border-radius: 50%;
-    aspect-ratio: 1;
-    cursor: pointer;
-    margin-left:2em;
-    margin-right:2em;
+.saved-bar .add-button {
+  background-color: transparent;
+  border: 3px solid #11009e;
+  font-size: 1.5em;
+  border-radius: 50%;
+  aspect-ratio: 1;
+  cursor: pointer;
+  margin-left: 2em;
+  margin-right: 2em;
 }
 
-.saved-bar .expand-button{
-    position: absolute; /* Add absolute positioning */
-  bottom: 0.5em; /* Adjust the desired distance from the bottom */
-  right: 0.5em; /* Adjust the desired distance from the right */
+.saved-bar .expand-button {
+  position: absolute;
+  bottom: 0.5em;
+  right: 0.5em;
 }
