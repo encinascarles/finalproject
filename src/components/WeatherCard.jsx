@@ -18,9 +18,6 @@ export default function WeatherCard({ weatherData }) {
   return (
     <div className="weather-card">
       <h1>{weatherData.name}</h1>
-      <button onClick={() => state_saved.setSaved(weatherData.name)}>
-        Save
-      </button>
       <h3>
         There is {weatherData.weather[0].description} in {weatherData.name}
       </h3>
