@@ -4,8 +4,21 @@
     display:flex;
     flex-direction: row;
     align-items: center;
-    height:100px;
+    height:200px;
 }
 .saved-bar h1 {
+    margin-right :2em;
+    margin-left :1em;
+}
+
+.saved-city{
+    display: flex;
+    flex-direction: column;
+    margin:1em;
+}
+.saved-city h2, .saved-city h4{
     margin:0;
+}
+.saved-city img{
+    height:120px;
 }
