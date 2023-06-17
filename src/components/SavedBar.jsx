@@ -26,10 +26,15 @@ function SavedCity({ city }) {
   const doSearch = (event) => {
     const fetchWeatherData = async () => {
       const data = await searchWeather(city);
-      console.log(data);
       state.setWeather(data);
     };
     fetchWeatherData();
+    console.log("searching for " + city);
+  };
+
+  const doDelete = (event) => {
+    state_saved.rmSaved(city);
+    event.stopPropagation();
   };
 
   return (
@@ -41,7 +46,7 @@ function SavedCity({ city }) {
     >
       <div className="name-delete">
         <h2>{city}</h2>
-        <button onClick={() => state_saved.rmSaved(city)}>&#128465;</button>
+        <button onClick={(event) => doDelete(event)}>&#128465;</button>
       </div>
       <img src={weatherData[0]} />
       <h4>Temp: {weatherData[1]} °C</h4>
@@ -62,8 +67,11 @@ function SavedBar() {
           key={"savebarcomponent_" + savedCities.indexOf(city)}
         />
       ))}
-      <button className="add-button" onClick={() => state_saved.setSaved(state.getWeather().name)}>
-      &#10133;
+      <button
+        className="add-button"
+        onClick={() => state_saved.setSaved(state.getWeather().name)}
+      >
+        &#10133;
       </button>
     </div>
   );
